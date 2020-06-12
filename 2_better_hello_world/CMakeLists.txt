@@ -18,3 +18,27 @@ INSTALL(PROGRAMS hellocmake.sh DESTINATION bin)
 
 # 演示安装 doc 文件
 INSTALL(DIRECTORY doc/ DESTINATION share/doc/hellocmake/better_hello_world)
+
+# 演示如何使用 CPack 打包成 deb
+
+# 包名
+set(CPACK_PACKAGE_NAME "test-pkg-name")
+
+set(CPACK_SET_DESTDIR ON)
+
+# 安装路径前缀
+set(CPACK_INSTALL_PREFIX "/home/chaoqun/test")
+
+# 包版本
+set(CPACK_PACKAGE_VERSION "0.0.1")
+
+# 设置 group 名字                                     
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "codefreedom")      
+
+# 设置 vendor 名字                             
+set(CPACK_PACKAGE_VENDOR "chaoqun")    
+
+# 设置 license 信息                                  
+set(CPACK_RPM_PACKAGE_LICENSE "Apache 2.0 + Common Clause 1.0")
+include(CPack)
+
